@@ -3,19 +3,22 @@ from feature_files.natural_language import talk
 import json
 import inspect
 from feature_files.speak_and_get_audio import speak, get_audio
-import threading
 from PyQt5 import QtGui
-from PyQt5.QtCore import QThread, pyqtSlot, pyqtSignal, QObject
 from PyQt5 import QtCore
+from PyQt5.QtCore import *
 
 TEXT = ''
+
+import PyQt5.uic
+from PyQt5.QtWidgets import *
+import sys
+
 
 try:
     with open("feature_files/data/userdata.json", "r+") as d:
         data = dict(json.load(d))
         d.close()
     write = open("feature_files/data/userdata.json", "w")
-
 
     if data.get("signedin") == 0:
         username = input("Enter your name: ")
@@ -27,20 +30,12 @@ try:
     else:
         name = data.get("botname")
 
-    json.dump(data, write)
-
-    write.close()
-
     print("The data you enter here is stored on your device and not sent anywhere else.")
     print()
 
     bot = Assistant(name)
 except:
     bot = Assistant("Zen")
-
-import PyQt5.uic
-from PyQt5.QtWidgets import *
-import sys
 
 
 class MainBackgroundThread(QThread):
@@ -67,12 +62,28 @@ class UiMainWindow(QMainWindow):
     def __init__(self):
         super(UiMainWindow, self).__init__()
         PyQt5.uic.loadUi('UI/main.ui', self)
+        self.btn_toggle.clicked.connect(lambda: self.slideLeftMenu())
+        self.actionExit.triggered.connect(lambda: sys.exit())
+        self.actionLog_out.triggered.connect(lambda: self.showLoginWindow())
         self.submit.clicked.connect(self.onsend)
         self.voiceinput.clicked.connect(self.onvoice)
         self.parameter_entered = False
         self.parameter = None
         self.current_function = None
         self.audio = VoiceWorker()
+
+    def slideLeftMenu(self):
+        width = self.frame_2.width()
+        if width < 101:
+            newWidth = 101
+        else:
+            newWidth = 0
+        self.animation = QPropertyAnimation(self.frame_2, b"geometry")
+        self.animation.setDuration(250)
+        self.animation.setStartValue(QRect(0, 40, width, 801))
+        self.animation.setEndValue(QRect(0, 40, newWidth, 801))
+        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animation.start()
 
     # noinspection PyUnresolvedReferences
     def onvoice(self):

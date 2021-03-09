@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1143</width>
-    <height>623</height>
+    <width>1241</width>
+    <height>694</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:#2d2d2d;</string>
+   <string notr="true">background-color:#2d2d2d;color:white;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="submit">
@@ -33,7 +33,8 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:10px; background-color:white; border: 2.5px solid black;</string>
+     <string notr="true">QPushButton{border-radius:10px; background-color:white; border: 2.5px solid black; color:black;}
+QPushButton:hover{background-color:#2d2d2d; border: 3px solid white; color:white;}</string>
     </property>
     <property name="text">
      <string>Send!</string>
@@ -56,8 +57,14 @@
       <family>Georgia</family>
      </font>
     </property>
+    <property name="whatsThis">
+     <string>Your message goes here!</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:#f2f2f2; color:black; padding:5px; border-radius:10px;border:2.5px solid black;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Your message goes here!</string>
     </property>
    </widget>
    <widget class="QPushButton" name="voiceinput">
@@ -104,19 +111,6 @@
      <number>101</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_toggle">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="chatrec">
     <property name="geometry">
      <rect>
@@ -125,6 +119,12 @@
       <width>591</width>
       <height>381</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Georgia</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:#f2f2f2; color:black;padding:8px; border: 2.5px solid black; border-radius:10px;</string>
@@ -135,9 +135,224 @@
     <property name="overwriteMode">
      <bool>true</bool>
     </property>
+    <property name="placeholderText">
+     <string>Chat history shows up here.</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-60</y>
+      <width>1461</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#161616;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="btn_toggle">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{border-radius:10px; background-color:#2d2d2d; border: 2.5px solid black; color:white;}
+QPushButton:hover{background-color:white; border: 3px solid white; color:black;}</string>
+     </property>
+     <property name="text">
+      <string>Menu</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>0</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#161616;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>81</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{}
+QPushButton:hover{
+	background-color:#2d2d2d;
+	border-radius: 8px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Commands</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>81</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{}
+QPushButton:hover{
+	background-color:#2d2d2d;
+	border-radius: 8px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Settings</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>81</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{}
+QPushButton:hover{
+	background-color:#2d2d2d;
+	border-radius: 8px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Actions</string>
+     </property>
+    </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLog_out"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <widget class="QMenu" name="menuBlog">
+     <property name="title">
+      <string>Blog</string>
+     </property>
+    </widget>
+    <addaction name="menuBlog"/>
+   </widget>
+   <widget class="QMenu" name="menuCOmmands">
+    <property name="title">
+     <string>Commands</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuPreferences">
+    <property name="title">
+     <string>Preferences</string>
+    </property>
+    <addaction name="actionSettings"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuAbout"/>
+   <addaction name="menuPreferences"/>
+   <addaction name="menuCOmmands"/>
+  </widget>
+  <action name="actionLog_out">
+   <property name="text">
+    <string>Log out</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+L</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>Close the application</string>
+   </property>
+   <property name="whatsThis">
+    <string>Close the application</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionlol">
+   <property name="text">
+    <string>lol</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
