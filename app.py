@@ -1,6 +1,5 @@
 from features import Assistant
 from feature_files.natural_language import talk
-import json
 import inspect
 from feature_files.speak_and_get_audio import speak, get_audio
 from PyQt5 import QtGui
@@ -13,30 +12,7 @@ import PyQt5.uic
 from PyQt5.QtWidgets import *
 import sys
 
-
-try:
-    with open("feature_files/data/userdata.json", "r+") as d:
-        data = dict(json.load(d))
-        d.close()
-    write = open("feature_files/data/userdata.json", "w")
-
-    if data.get("signedin") == 0:
-        username = input("Enter your name: ")
-        data["signedin"] = 1
-
-    if data.get("botname") == "":
-        name = input("Enter bot's name: ")
-        data['botname'] = name
-    else:
-        name = data.get("botname")
-
-    print("The data you enter here is stored on your device and not sent anywhere else.")
-    print()
-
-    bot = Assistant(name)
-except:
-    bot = Assistant("Zen")
-
+bot = Assistant("Cake")
 
 class MainBackgroundThread(QThread):
     def __init__(self, text):
@@ -56,7 +32,6 @@ class VoiceWorker(QObject):
         TEXT = x
         self.progress.emit(TEXT)
         self.finished.emit()
-
 
 class UiMainWindow(QMainWindow):
     def __init__(self):

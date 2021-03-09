@@ -30,7 +30,7 @@
      <string notr="true">background-color:#f2f2f2; color:black; padding:5px; border-radius:10px;border:2.5px solid black;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="botsname">
     <property name="geometry">
      <rect>
       <x>460</x>

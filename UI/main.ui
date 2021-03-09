@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1241</width>
-    <height>694</height>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -288,8 +288,8 @@ QPushButton:hover{
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionLog_out"/>
     <addaction name="actionExit"/>
+    <addaction name="actionLog_out_2"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -351,6 +351,11 @@ QPushButton:hover{
   <action name="actionlol">
    <property name="text">
     <string>lol</string>
+   </property>
+  </action>
+  <action name="actionLog_out_2">
+   <property name="text">
+    <string>Log out</string>
    </property>
   </action>
  </widget>
